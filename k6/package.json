@@ -1,0 +1,17 @@
+{
+  "name": "k6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "testSmoke": "k6 run -e SCENARIO=smoke --summary-export=summary.json ./tests/main.ts",
+  "testAverage": "k6 run -e SCENARIO=average --summary-export=summary.json ./tests/main.ts",
+  "testSpike": "k6 run -e SCENARIO=spike --summary-export=summary.json ./tests/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/k6": "^1.1.1"
+  }
+}
