@@ -17,6 +17,10 @@ jobs:
   k6-tests:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./k6    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -33,7 +37,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y gnupg software-properties-common
-          sudo gpg --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+          curl -fsSL https://dl.k6.io/key.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/k6.gpg
           echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt update
           sudo apt install -y k6
@@ -42,7 +46,7 @@ jobs:
         run: npm run test${{ github.event.inputs.scenario }}
 
       - name: Upload summary artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: summary-${{ github.event.inputs.scenario }}
-          path: summary.json        
+          path: k6/summary.json        
