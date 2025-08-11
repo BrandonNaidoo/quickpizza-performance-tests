@@ -17,6 +17,10 @@ jobs:
   k6-tests:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./k6    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
