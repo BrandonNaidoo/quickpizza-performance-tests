@@ -42,7 +42,7 @@ jobs:
         run: npm run test${{ github.event.inputs.scenario }}
 
       - name: Upload summary artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: summary-${{ github.event.inputs.scenario }}
           path: summary.json        
