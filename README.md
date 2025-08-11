@@ -11,7 +11,7 @@
 ## Project Overview
 
 
-This repository contains performance tests for the [QuickPizza API](https://quickpizza.grafana.com/), implemented using [k6](https://k6.io/). The tests demonstrate:
+This repository contains performance tests for the [QuickPizza API](https://quickpizza.grafana.com/), implemented using [k6](https://k6.io/).
 
 The test suite is designed with modularity and maintainability in mind, leveraging TypeScript for type safety and a clean project structure separating configuration, test scenarios, models, and utility classes. Workloads and scenarios are configurable via environment variables, allowing flexible execution in local and CI environments.
 
